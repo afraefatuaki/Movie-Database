@@ -3,14 +3,19 @@ const FilmInfo = (props) => {
 
         <section>
             <div id="background">
-                <p id="title">{props.title}</p>
-                <p>{props.year}</p>
+                <h1 id="title">{props.title}</h1>
+                <h3>{props.year}</h3>
                 <p>{props.director}</p>
-                <p>{props.duration}</p>
-                <p>{props.genre}</p>
+                <h1>{props.duration}</h1>
                 <p >{props.rate}</p>
+                <article>
+                    {props.genre.map((genre, j) => <p key={j}>{genre}</p>)}
+                </article>
+
+
             </div>
         </section>
+
     );
 }
 

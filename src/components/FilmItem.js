@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Buttons from './Buttons';
 import FilmInfo from './FilmInfo';
 
 var movies = [
@@ -2005,11 +2006,25 @@ var movies = [
 ];
 class FilmItem extends Component {
     state = {
-        myMovies: movies.slice()
+        myMovies: movies.slice(),
+        Ascending: true,
+        Descending: true
+    }
+    handleAscending = () => {
+        this.setState.Ascending = this.state.myMovies.sort((a, b) => a.year - b.year)
+        this.setState({ Ascending: !this.state.Ascending })
+    }
+    handleDescending = () => {
+        this.setState.Descending = this.state.myMovies.sort((a, b) => a.year - b.year).reverse()
+        this.setState({ Descending: !this.state.Descending })
     }
     render() {
         return (
             <section>
+                <Buttons
+                    handleAscending={this.handleAscending}
+                    handleDescending={this.handleDescending}
+                />
                 {this.state.myMovies.map((elt, i) => <FilmInfo
                     key={i}
                     title={elt.title}
@@ -2018,13 +2033,12 @@ class FilmItem extends Component {
                     duration={elt.duration}
                     rate={elt.rate}
                     genre={elt.genre}
-
                 />)}
-
             </section>
         );
     }
 }
+
 
 export default FilmItem;
 
