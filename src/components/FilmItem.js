@@ -2018,12 +2018,27 @@ class FilmItem extends Component {
         this.setState.Descending = this.state.myMovies.sort((a, b) => a.year - b.year).reverse()
         this.setState({ Descending: !this.state.Descending })
     }
+    handleRate = () => {
+        this.setState.Rate = this.state.myMovies.sort((a, b) => a.rate - b.rate).reverse()
+        this.setState({ Rate: !this.state.Rate })
+    }
+    handleAlphabetAsc = () => {
+        this.setState.AlphabetAsc = this.state.myMovies.sort((a, b) => a.title.localeCompare(b.title))
+        this.setState({ AlphabetAsc: !this.state.AlphabetAsc })
+    }
+    handleAlphabetDes = () => {
+        this.setState.AlphabetDes = this.state.myMovies.sort((a, b) => b.title.localeCompare(a.title))
+        this.setState({ AlphabetDes: !this.state.AlphabetDes })
+    }
     render() {
         return (
             <section>
                 <Buttons
                     handleAscending={this.handleAscending}
                     handleDescending={this.handleDescending}
+                    handleRate={this.handleRate}
+                    handleAlphabetAsc={this.handleAlphabetAsc}
+                    handleAlphabetDes={this.handleAlphabetDes}
                 />
                 {this.state.myMovies.map((elt, i) => <FilmInfo
                     key={i}

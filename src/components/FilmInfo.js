@@ -3,6 +3,7 @@ const FilmInfo = (props) => {
 
         <section>
             <div id="background">
+
                 <h1 id="title">{props.title}</h1>
                 <h3>{props.year}</h3>
                 <p>{props.director}</p>
@@ -11,7 +12,6 @@ const FilmInfo = (props) => {
                 <article>
                     {props.genre.map((genre, j) => <p key={j}>{genre}</p>)}
                 </article>
-
 
             </div>
         </section>
